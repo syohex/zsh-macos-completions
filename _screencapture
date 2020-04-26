@@ -1,8 +1,5 @@
 #compdef screencapture
 
-local state line expl
-typeset -A opt_args
-
 __screencapture_files() {
   for ((i = 2;i < CURRENT;i++)) do
     if [[ $words[$i] == "-p" ]]; then
