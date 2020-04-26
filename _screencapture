@@ -1,0 +1,49 @@
+#compdef screencapture
+
+local state line expl
+typeset -A opt_args
+
+__screencapture_files() {
+  for ((i = 2;i < CURRENT;i++)) do
+    if [[ $words[$i] == "-p" ]]; then
+      return
+    fi
+  done
+
+  _files
+}
+
+_arguments \
+  '-c[force screen capture to go to the clipboard]' \
+  '(-i -J -s -w -W)-b[capture touch bar only non interactive modes]' \
+  '(-b -i -J -s -w -W)-C[capture the cursor as well as the screen only in non interactive modes]' \
+  '-d[display errors to the user graphically]' \
+  '(-b -C)-i[capture screen interactively. ctrl clipboard, space toggle mode, escape cancel]' \
+  '-m[only capture the main monitor]' \
+  '-D[screen capture or record from the display specified]:display_number:' \
+  '(-b -s)-o[in window capture mode, do not capture the shadow of the window]' \
+  '-p[screen capture will use the default settings for capture]' \
+  '-M[screen capture output will go to a new Mail message]' \
+  '-P[screen capture output will open in Preview or QuickTime Player]' \
+  '-I[screen capture output will open in Messages]' \
+  '-B[screen capture output will open in app with bundle ID]:bundle_id:' \
+  '(-b -i -w -W)-s[only allow mouse selection mode]' \
+  '-S[in window capture mode, capture the screen not the window]' \
+  '-J+[sets the starting of interactive capture]:style:(selection window video)' \
+  '(-p)-t[image format to create default is png]:format:(pdf jpg tiff gif)' \
+  '-T[take the picture after a delay of seconds]:seconds:' \
+  '(-b -i -s -W)-w[only allow window selection mode]::->interactive' \
+  '(-b -i -s -w)-W[start interaction in window selection mode]::->interactive' \
+  '-x[do not play sounds]' \
+  '-a[do not include windows attached to selected windows]' \
+  '-r[do not add dpi meta data to image]' \
+  '-l[capture this windows ID]:window_id:' \
+  '(-b -i -s -w -W)-R[capture screen rect]:rect:' \
+  '(-b)-v[capture video recording of the screen]::->video' \
+  '-V[limits video capture to specified seconds]:seconds:' \
+  '-g[captures audio during a video recording using default input]' \
+  '-G[captures audio during a video recording using audio ID specified]' \
+  '-k[show clicks in video recording mode]' \
+  '-U[Show interactive toolbar in interactive mode]' \
+  '-u[present UI after screencapture is complete]' \
+  '*:files:__screencapture_files'
