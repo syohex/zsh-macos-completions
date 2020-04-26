@@ -31,7 +31,7 @@ _arguments \
   '-S[in window capture mode, capture the screen not the window]' \
   '-J+[sets the starting of interactive capture]:style:(selection window video)' \
   '(-p)-t[image format to create default is png]:format:(pdf jpg tiff gif)' \
-  '-T[take the picture after a delay of seconds]:seconds:' \
+  '-T+[take the picture after a delay of seconds]:seconds:' \
   '(-b -i -s -W)-w[only allow window selection mode]::->interactive' \
   '(-b -i -s -w)-W[start interaction in window selection mode]::->interactive' \
   '-x[do not play sounds]' \
@@ -40,7 +40,7 @@ _arguments \
   '-l[capture this windows ID]:window_id:' \
   '(-b -i -s -w -W)-R[capture screen rect]:rect:' \
   '(-b)-v[capture video recording of the screen]::->video' \
-  '-V[limits video capture to specified seconds]:seconds:' \
+  '-V+[limits video capture to specified seconds]:seconds:' \
   '-g[captures audio during a video recording using default input]' \
   '-G[captures audio during a video recording using audio ID specified]' \
   '-k[show clicks in video recording mode]' \
