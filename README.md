@@ -4,3 +4,6 @@
 
 - screencapture
 - mediafilesegmenter
+- mediastreamsegmenter
+- mediastreamvalidator
+- mediasubtitlesegmenter
