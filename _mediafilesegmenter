@@ -38,7 +38,7 @@
 _arguments \
   '(-b --base-url)'{-b,--base-url}'[Base url]:url' \
   '(-t --target-duration)'{-t,--target-duration=}'[Target duration for each segment]:duration' \
-  '(-f --file-base)'{-f,--file-base=}'[Path at which to store index and media files]: :_files' \
+  '(-f --file-base)'{-f,--file-base=}'[Path at which to store index and media files]: :_files -/' \
   '(-F --meta-file)'{-F,--meta-file=}'[Meta data file to load for each segment]: :_files' \
   '(-y --meta-type)'{-y,--meta-type=}'[Meta  data format for metadata file to]: :(id3 private picture)' \
   '(-M --meta-macro-file)'{-M,--meta-macro-file=}'[Macro file containing the list of metadata entries to inject in the stream]: :_files' \
