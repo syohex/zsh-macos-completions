@@ -1,14 +1,39 @@
 #compdef screencapture
-
-__screencapture_files() {
-  for ((i = 2;i < CURRENT;i++)) do
-    if [[ $words[$i] == "-p" ]]; then
-      return
-    fi
-  done
-
-  _files
-}
+# ------------------------------------------------------------------------------
+# MIT License
+#
+# Copyright 2022 Shohei Yoshida
+#
+# Permission is hereby granted, free of charge, to any person obtaining a copy
+# of this software and associated documentation files (the "Software"), to deal
+# in the Software without restriction, including without limitation the rights
+# to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+# copies of the Software, and to permit persons to whom the Software is
+# furnished to do so, subject to the following conditions:
+#
+# The above copyright notice and this permission notice shall be included in all
+# copies or substantial portions of the Software.
+#
+# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+# IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+# FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+# AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+# LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+# OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+# SOFTWARE.
+# ------------------------------------------------------------------------------
+# Description
+# -----------
+#
+#  Completion script for screencapture command
+#
+# ------------------------------------------------------------------------------
+# Authors
+# -------
+#
+#  * Shohei Yoshida (https://github.com/syohex)
+#
+# ------------------------------------------------------------------------------
 
 _arguments \
   '-c[force screen capture to go to the clipboard]' \
@@ -27,10 +52,10 @@ _arguments \
   '(-b -i -w -W)-s[only allow mouse selection mode]' \
   '-S[in window capture mode, capture the screen not the window]' \
   '-J+[sets the starting of interactive capture]:style:(selection window video)' \
-  '(-p)-t[image format to create default is png]:format:(pdf jpg tiff gif)' \
+  '(-p)-t[image format to create default is png]:format:(png pdf jpg tiff gif)' \
   '-T+[take the picture after a delay of seconds]:seconds:' \
-  '(-b -i -s -W)-w[only allow window selection mode]::->interactive' \
-  '(-b -i -s -w)-W[start interaction in window selection mode]::->interactive' \
+  '(-b -i -s -W)-w[only allow window selection mode]' \
+  '(-b -i -s -w)-W[start interaction in window selection mode]' \
   '-x[do not play sounds]' \
   '-a[do not include windows attached to selected windows]' \
   '-r[do not add dpi meta data to image]' \
@@ -43,4 +68,12 @@ _arguments \
   '-k[show clicks in video recording mode]' \
   '-U[Show interactive toolbar in interactive mode]' \
   '-u[present UI after screencapture is complete]' \
-  '*:files:__screencapture_files'
+  '*:files:_files'
+
+# Local Variables:
+# mode: Shell-Script
+# sh-indentation: 2
+# indent-tabs-mode: nil
+# sh-basic-offset: 2
+# End:
+# vim: ft=zsh sw=2 ts=2 et
